@@ -6,7 +6,7 @@ module.exports = function(config) {
       configFile: 'config.js',
       config: {
         paths: {
-          "*": null,
+          "*": "*",
           "src/*": "src/*",
           "typescript": "node_modules/typescript/lib/typescript.js",
           "systemjs": "node_modules/systemjs/dist/system.js",
@@ -29,7 +29,8 @@ module.exports = function(config) {
       ]
     },
     files: [
-      'test/unit/*.spec.ts'
+      'test/unit/setup.ts',
+      'test/unit/*.ts'
     ],
     exclude: [],
     preprocessors: { },

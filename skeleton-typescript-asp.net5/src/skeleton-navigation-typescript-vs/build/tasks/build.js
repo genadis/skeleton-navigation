@@ -5,8 +5,9 @@ var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
 var paths = require('../paths');
 var assign = Object.assign || require('object.assign');
-var notify = require("gulp-notify");
+var notify = require('gulp-notify');
 var typescript = require('gulp-tsb');
+var exec = require('child_process').exec;
 
 // transpiles changed es6 files to SystemJS format
 // the plumber() call prevents 'pipe breaking' caused
@@ -21,7 +22,7 @@ gulp.task('build-system', function() {
     .pipe(plumber())
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(typescriptCompiler())
-    .pipe(sourcemaps.write({includeContent: true}))
+    .pipe(sourcemaps.write({includeContent: false, sourceRoot: '/src'}))
     .pipe(gulp.dest(paths.output));
 });
 
@@ -37,6 +38,12 @@ gulp.task('build-css', function() {
   return gulp.src(paths.css)
     .pipe(changed(paths.output, {extension: '.css'}))
     .pipe(gulp.dest(paths.output));
+});
+
+// runs jspm install from within Gulp
+gulp.task('build-jspm', function () {
+    exec('jspm install', function (err, stout, stderr) {
+    });
 });
 
 // this task calls the clean task (located

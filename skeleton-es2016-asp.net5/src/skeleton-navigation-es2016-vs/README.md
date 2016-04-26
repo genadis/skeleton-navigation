@@ -1,12 +1,5 @@
 # aurelia-skeleton-navigation
 
-[![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.io)
-[![Join the chat at https://gitter.im/aurelia/discuss](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/aurelia/discuss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-This skeleton is part of the [Aurelia](http://www.aurelia.io/) platform. It sets up a standard navigation-style app using gulp to build your ES6 code with the Babel compiler. Karma/Protractor/Jasmine testing is also configured.
-
-> To keep up to date on [Aurelia](http://www.aurelia.io/), please visit and subscribe to [the official blog](http://blog.durandal.io/). If you have questions, we invite you to [join us on Gitter](https://gitter.im/aurelia/discuss). If you would like to have deeper insight into our development process, please install the [ZenHub](https://zenhub.io) Chrome Extension and visit any of our repository's boards. You can get an overview of all Aurelia work by visiting [the framework board](https://github.com/aurelia/framework#boards).
-
 ## Running The App
 
 To run the app, follow these steps.
@@ -46,31 +39,6 @@ To run the app, follow these steps.
 
 > The Skeleton App uses [BrowserSync](http://www.browsersync.io/) for automated page refreshes on code/markup changes concurrently across multiple browsers. If you prefer to disable the mirroring feature set the [ghostMode option](http://www.browsersync.io/docs/options/#option-ghostMode) to false
 
-## Running The App under Electron
-
-To run the app under [Electron](http://electron.atom.io), follow these steps.
-
-1. Install [Electron](http://electron.atom.io)
-
-  ```shell
-  npm install electron-prebuilt -g
-  ```
-2. To start the app, execute the following command:
-
-  ```shell
-  electron index.js
-  ```
->**Note:** If you use electron every time or are packaging and so-forth, Then change this line in package.json from
-`"main": "dist/main.js",` to `"main": "index.js",`
-Build the app (this will give you a dist directory)
-```shell
-gulp build
-```
-To start the app, execute the following command:
-```shell
-   electron .
-```
-
 
 ## Bundling
 Bundling is performed by [Aurelia Bundler](http://github.com/aurelia/bundler). A gulp task is already configured for that. Use the following command to bundle the app:
@@ -84,8 +52,14 @@ You can also unbundle using the command bellow:
   ```shell
   gulp unbundle
   ```
+
+To start the bundled app, execute the following command:
+
+  ```shell
+    gulp serve-bundle
+  ```
 #### Configuration
-The configuration is done by ```bundles.json``` file.
+The configuration is done by ```bundles.js``` file.
 ##### Optional
 Under ```options``` of ```dist/aurelia``` add ```rev: true``` to add bundle file revision/version.
 
@@ -143,5 +117,5 @@ A gulp task is already configured for that. Use the following command to export 
   ```
 The app will be exported into ```export``` directory preserving the directory structure.
 #### Configuration
-The configuration is done by ```bundles.json``` file.
-In addition, ```export.json``` file is available for including individual files.
+The configuration is done by ```bundles.js``` file.
+In addition, ```export.js``` file is available for including individual files.
